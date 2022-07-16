@@ -1,12 +1,9 @@
 import { mergeWith, Rule, SchematicContext, SchematicsException, Tree, url } from '@angular-devkit/schematics'
-import { cspell } from '../constants'
 import { Schema } from '../schema'
-import { addDependencies } from './dependency.helper'
 
 export function addCspell(options: Schema): Rule {
   return (tree: Tree, context: SchematicContext) => {
     if (options.isAddCspell) {
-      addDependencies(tree, context, [cspell])
       addNpmScript(tree, context)
       renameCspell(tree, context)
 
