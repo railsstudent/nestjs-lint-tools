@@ -1,0 +1,59 @@
+{
+  "name": "nestjs-lint-tools",
+  "version": "0.0.1",
+  "description": "A schematics to install dependencies and eslint plugins to enforce code quality",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && jasmine src/**/*_spec.js",
+    "copy:collection": "cpx schematics/collection.json dist && cpx 'schematics/**/schema.json' dist",
+    "copy:schematics": "cpx 'schematics/**/files/**' dist",
+    "postbuild": "npm run copy:collection && npm run copy:schematics",
+    "manual-test": "npm run build && schematics .:nest-add",
+    "lint": "eslint \"schematics/**/*.ts\" --fix",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "schematics",
+    "nestjs",
+    "eslint",
+    "commitlint",
+    "lintstaged",
+    "cspell",
+    "husky",
+    "sonarjs",
+    "rxjs"
+  ],
+  "author": "Connie Leung",
+  "license": "MIT",
+  "bugs": "https://github.com/railsstudent/nestjs-linit-tools/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/railsstudent/nestjs-lint-tools.git"
+  },
+  "homepage": "https://github.com/railsstudent/nestjs-lint-tools#readme",
+  "schematics": "./dist/collection.json",
+  "nest-add": {
+    "save": "devDependencies"
+  },
+  "dependencies": {
+    "@angular-devkit/core": "13.3.0",
+    "@angular-devkit/schematics": "13.3.0",
+    "@schematics/angular": "13.3.0",
+    "typescript": "4.7.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "4.0.0",
+    "@types/node": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "5.27.1",
+    "@typescript-eslint/parser": "5.27.1",
+    "cpx": "1.5.0",
+    "eslint": "8.17.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "jasmine": "4.0.0",
+    "prettier": "2.6.2",
+    "rimraf": "3.0.2",
+    "ts-node": "10.8.1"
+  }
+}

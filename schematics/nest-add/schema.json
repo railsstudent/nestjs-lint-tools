@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsNestAdd",
+  "title": "Nest Add Schema",
+  "description": "Add lint tools to the nestjs application",
+  "type": "object",
+  "properties": {
+    "isAddStrictMode": {
+      "type": "boolean",
+      "description": "Add strict mode in tsConfig.json.",
+      "x-prompt": "Do you like to set strict mode in tsconfig.json?",
+      "default": true
+    },
+    "isAddCspell": {
+      "type": "boolean",
+      "description": "Install cspell dev depdendencies.",
+      "x-prompt": "Do you like to add cspell for spell checking?",
+      "default": true
+    },
+    "isAddCommitlint": {
+      "type": "boolean",
+      "description": "Install commitlint dev depdendencies.",
+      "x-prompt": "Do you like to add commitlint to adopt the convention of commit message?",
+      "default": true
+    },
+    "isAddLintStaged": {
+      "type": "boolean",
+      "description": "Install lint-staged dev dependencies.",
+      "x-prompt": "Do you like to add lint-staged?",
+      "default": true
+    },
+    "isAddEslintRxjs": {
+      "type": "boolean",
+      "description": "Install eslint-plugin-rxjs dev dependencies.",
+      "x-prompt": "Do you like to add eslint rules for RxJs?",
+      "default": true
+    },
+    "isAddEslintSonarJs": {
+      "type": "boolean",
+      "description": "Install eslint-plugin-sonarjs dev dependencies.",
+      "x-prompt": "Do you like to add SonarJS rules for ESLint?",
+      "default": true
+    },
+    "nodeVersion": {
+      "type": "number",
+      "description": "Specify node version that the project uses",
+      "x-prompt": "Which version does the project use?",
+      "default": "16",
+      "enum": [12, 14, 16, 18]
+    },
+    "nodeVersionFile": {
+      "type": "string",
+      "description": "Create node version file.",
+      "x-prompt": "Do you like to create node version configuration file?",
+      "default": "none",
+      "enum": ["none", ".node-version", ".nvmrc"]
+    }
+  }
+}
