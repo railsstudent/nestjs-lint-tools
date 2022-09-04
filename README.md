@@ -10,6 +10,7 @@
 - Install husky pre-commit and commit-msg hooks
 - Add engines section in package.json
 - Add either .node-version or .nvmrc node configuration version
+- Install unimported and create .unimportedrc.json configuration to check unused files and dependencies
 
 ## Installation
 
@@ -30,6 +31,7 @@ Example output of the schematics:
 Starting library setup...
 ? Do you like to set strict mode in tsconfig.json? Yes
 ? Do you like to add cspell for spell checking? Yes
+? Do you like to add unimported to find unused files and dependencies? Yes
 ? Do you like to add commitlint to adopt the convention of commit message? Yes
 ? Do you like to add lint-staged? Yes
 ? Do you like to add eslint rules for RxJs? Yes
@@ -55,6 +57,7 @@ Starting library setup...
 CREATE cspell.json (123 bytes)
 CREATE .husky/commit-msg (81 bytes)
 CREATE .husky/pre-commit (81 bytes)
+CREATE .unimportedrc.json (408 bytes)
 CREATE .commitlintrc.json (66 bytes)
 CREATE .lintstagedrc.json (105 bytes)
 CREATE eslintrc.template (88 bytes)
