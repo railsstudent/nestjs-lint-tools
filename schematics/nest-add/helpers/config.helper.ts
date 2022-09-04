@@ -15,13 +15,31 @@ export function addConfigurationFiles(options: Schema): Rule {
       configRules.push(createCommitlintConfig(tree, context))
     }
 
-    if (options.isAddLintStaged) {
+    if (options.isAddLintStaged || options.isAddUnimported) {
       addPreCommitHook(tree, context)
-      configRules.push(createLintStagedJson(tree, context, options))
+      if (options.isAddLintStaged) {
+        configRules.push(createLintStagedJson(tree, context, options))
+      } else {
+        configRules.push(createUnimportedJson(tree, context))
+      }
     }
 
     return configRules.length ? chain(configRules) : tree
   }
+}
+
+function createUnimportedJson(tree: Tree, context: SchematicContext) {
+  const configFileName = '.unimportedrc.json'
+  if (tree.exists(configFileName)) {
+    const originalConfigFileName = `${configFileName}.original`
+    if (tree.exists(originalConfigFileName)) {
+      tree.delete(originalConfigFileName)
+    }
+    tree.rename(configFileName, originalConfigFileName)
+    context.logger.info(`Rename ${configFileName} to ${originalConfigFileName}`)
+  }
+
+  return mergeWith(url('./files/unimported'))
 }
 
 function createLintStagedJson(tree: Tree, context: SchematicContext, options: Schema) {

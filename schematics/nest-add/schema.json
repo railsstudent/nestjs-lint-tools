@@ -17,6 +17,12 @@
       "x-prompt": "Do you like to add cspell for spell checking?",
       "default": true
     },
+    "isAddUnimported": {
+      "type": "boolean",
+      "description": "Install unimported dev depdendencies.",
+      "x-prompt": "Do you like to add unimported to find unused files and dependencies?",
+      "default": true
+    },
     "isAddCommitlint": {
       "type": "boolean",
       "description": "Install commitlint dev depdendencies.",

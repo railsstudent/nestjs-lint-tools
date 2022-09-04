@@ -22,7 +22,8 @@
     "cspell",
     "husky",
     "sonarjs",
-    "rxjs"
+    "rxjs",
+    "unimported"
   ],
   "author": "Connie Leung",
   "license": "MIT",
