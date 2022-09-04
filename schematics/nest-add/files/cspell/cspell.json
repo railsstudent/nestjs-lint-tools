@@ -2,5 +2,6 @@
   "version": "0.2",
   "language": "en",
   "words": ["nestjs", "commitlint", "dtos", "sonarjs"],
-  "flagWords": ["hte"]
+  "flagWords": ["hte"],
+  "ignorePaths": ["node_modules", "test", "*.spect.ts"]
 }
