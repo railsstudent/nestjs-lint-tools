@@ -3,3 +3,7 @@ export interface HuskySchema {
   commitMsgFilePath?: string
   preCommitFilePath?: string
 }
+
+export interface HuskyPrecommitHookSchema extends HuskySchema {
+  shouldInstallUnimported: boolean
+}

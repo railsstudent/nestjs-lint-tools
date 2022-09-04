@@ -1,5 +1,6 @@
 import { Tree, SchematicContext, SchematicsException } from '@angular-devkit/schematics'
 import { NodePackageInstallTask, RunSchematicTask } from '@angular-devkit/schematics/tasks'
+import { Schema } from '../schema'
 
 export function addCommitMessageHook(tree: Tree, context: SchematicContext) {
   const commitMsg = `#!/bin/sh
@@ -25,11 +26,15 @@ npx --no -- commitlint --edit "\${1}"
   }
 }
 
-export function addPreCommitHook(tree: Tree, context: SchematicContext) {
+export function addPreCommitHook(tree: Tree, context: SchematicContext, options: Schema) {
+  const { isAddLintStaged, isAddUnimported } = options
+  const cmdLintStaged = isAddLintStaged ? 'npx --no-install lint-staged' : ''
+  const cmdUnimported = isAddUnimported ? 'npx --no unimported' : ''
   const preCommit = `#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
     
-npx --no-install lint-staged    
+${cmdLintStaged}
+${cmdUnimported}
   `
 
   const preCommitFilePath = '.husky/pre-commit'
@@ -40,6 +45,7 @@ npx --no-install lint-staged
     context.addTask(
       new RunSchematicTask('pre-commit-hook', {
         enableGitHooksScript: 'npm run prepare',
+        installUnimported: isAddUnimported,
         preCommitFilePath,
       }),
       [installTaskId],
