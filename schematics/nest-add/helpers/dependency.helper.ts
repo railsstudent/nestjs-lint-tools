@@ -26,6 +26,10 @@ export function installDependencies(options: Schema): Rule {
       dependencies.add(lintStaged).add(husky)
     }
 
+    if (options.isAddUnimported) {
+      dependencies.add(husky)
+    }
+
     addDependencies(tree, context, Array.from(dependencies))
     return tree
   }
