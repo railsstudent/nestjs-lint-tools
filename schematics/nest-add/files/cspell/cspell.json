@@ -3,5 +3,5 @@
   "language": "en",
   "words": ["nestjs", "commitlint", "dtos", "sonarjs"],
   "flagWords": ["hte"],
-  "ignorePaths": ["node_modules", "test", "*.spect.ts"]
+  "ignorePaths": ["node_modules", "test", "*.spec.ts"]
 }
