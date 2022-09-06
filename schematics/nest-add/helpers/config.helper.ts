@@ -19,7 +19,9 @@ export function addConfigurationFiles(options: Schema): Rule {
       addPreCommitHook(tree, context, options)
       if (options.isAddLintStaged) {
         configRules.push(createLintStagedJson(tree, context, options))
-      } else {
+      }
+
+      if (options.isAddUnimported) {
         configRules.push(createUnimportedJson(tree, context))
       }
     }

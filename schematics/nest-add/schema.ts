@@ -6,6 +6,7 @@ export interface Schema {
   isAddCommitlint: boolean
   isAddLintStaged: boolean
   isAddEslintSonarJs: boolean
+  isEnableESModuleInterop: boolean
   nodeVersion: number
   nodeVersionFile: string
 }

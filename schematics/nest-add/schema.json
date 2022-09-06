@@ -11,6 +11,12 @@
       "x-prompt": "Do you like to set strict mode in tsconfig.json?",
       "default": true
     },
+    "isEnableESModuleInterop": {
+      "type": "boolean",
+      "description": "Add esModuleInterop to tsConfig.json.",
+      "x-prompt": "Do you like to set esModuleInterop to true in tsconfig.json?",
+      "default": false
+    },
     "isAddCspell": {
       "type": "boolean",
       "description": "Install cspell dev depdendencies.",

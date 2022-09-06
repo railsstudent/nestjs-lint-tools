@@ -30,6 +30,7 @@ Example output of the schematics:
 ✔ Package installation in progress... ☕
 Starting library setup...
 ? Do you like to set strict mode in tsconfig.json? Yes
+? Do you like to set esModuleInterop to true in tsconfig.json? Yes
 ? Do you like to add cspell for spell checking? Yes
 ? Do you like to add unimported to find unused files and dependencies? Yes
 ? Do you like to add commitlint to adopt the convention of commit message? Yes
@@ -38,6 +39,7 @@ Starting library setup...
 ? Do you like to add SonarJS rules for ESLint? Yes
 ? Which version does the project use? 16
 ? Do you like to create node version configuration file? .nvmrc
+    Added esModuleInterop to tsconfig.json
     Added strict mode to tsconfig.json
     Found cspell@~6.1.1, do not add dependency
     Found @commitlint/cli@~17.0.2, do not add dependency
