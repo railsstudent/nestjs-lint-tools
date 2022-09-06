@@ -10,8 +10,12 @@ export function installDependencies(options: Schema): Rule {
       dependencies.add(cspell)
     }
 
+    if (options.isAddCommitlint || options.isAddLintStaged || options.isAddUnimported) {
+      dependencies.add(husky)
+    }
+
     if (options.isAddCommitlint) {
-      dependencies.add(commitlintCli).add(commitlintConfigConvention).add(husky)
+      dependencies.add(commitlintCli).add(commitlintConfigConvention)
     }
 
     if (options.isAddEslintRxjs) {
@@ -23,11 +27,7 @@ export function installDependencies(options: Schema): Rule {
     }
 
     if (options.isAddLintStaged) {
-      dependencies.add(lintStaged).add(husky)
-    }
-
-    if (options.isAddUnimported) {
-      dependencies.add(husky)
+      dependencies.add(lintStaged)
     }
 
     addDependencies(tree, context, Array.from(dependencies))
