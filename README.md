@@ -2,6 +2,7 @@
 
 ## What does it do?
 - Enable strict mode in tsconfig.json
+- Enable esModuleInterop in tsconfig.js
 - Install eslint-plugin-rxjs to lint rxjs codes
 - Install eslint-plugin-sonarjs to assure code quality
 - Install cspell and create cspell.json to check spelling
