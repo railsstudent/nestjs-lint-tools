@@ -29,7 +29,7 @@ npx --no -- commitlint --edit "\${1}"
 export function addPreCommitHook(tree: Tree, context: SchematicContext, options: Schema) {
   const { isAddLintStaged, isAddUnimported } = options
   const cmdLintStaged = isAddLintStaged ? 'npx --no-install lint-staged' : ''
-  const cmdUnimported = isAddUnimported ? 'npx --no unimported' : ''
+  const cmdUnimported = isAddUnimported ? 'npm run unimported' : ''
   const preCommit = `#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
     
@@ -55,7 +55,7 @@ ${cmdUnimported}
   }
 }
 
-export function addHuskyPrepareScript(tree: Tree, context: SchematicContext) {
+export function addHuskyPrepareScript(tree: Tree, context: SchematicContext, options: Schema) {
   const pkgPath = 'package.json'
   const buffer = tree.read(pkgPath)
 
@@ -63,11 +63,28 @@ export function addHuskyPrepareScript(tree: Tree, context: SchematicContext) {
     throw new SchematicsException(`Cannot find ${pkgPath}`)
   }
 
+  let isUnimportedScriptAdded = false
+  let isHuskyPrepareAdded = false
   const packageJson = JSON.parse(buffer.toString())
+  if (options.isAddUnimported) {
+    packageJson.scripts.unimported = 'unimported'
+    isUnimportedScriptAdded = true
+  }
+
   if (!packageJson.scripts.prepare) {
     packageJson.scripts.prepare = 'husky install'
+    isHuskyPrepareAdded = true
+  }
+
+  if (isHuskyPrepareAdded || isUnimportedScriptAdded) {
     tree.overwrite(pkgPath, JSON.stringify(packageJson, null, 2))
-    context.logger.info('Added husky prepare script to package.json')
+    if (isHuskyPrepareAdded) {
+      context.logger.info('Added husky prepare script to package.json')
+    }
+
+    if (isUnimportedScriptAdded) {
+      context.logger.info('Added unimported to package.json')
+    }
   } else {
     context.logger.info('Found husky prepare script, skip this step')
   }

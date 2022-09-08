@@ -6,7 +6,7 @@ import { addCommitMessageHook, addHuskyPrepareScript, addPreCommitHook } from '.
 export function addConfigurationFiles(options: Schema): Rule {
   return (tree: Tree, context: SchematicContext) => {
     if (options.isAddCommitlint || options.isAddLintStaged || options.isAddUnimported) {
-      addHuskyPrepareScript(tree, context)
+      addHuskyPrepareScript(tree, context, options)
     }
 
     const configRules: Rule[] = []

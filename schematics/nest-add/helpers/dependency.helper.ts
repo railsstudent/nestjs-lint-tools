@@ -1,6 +1,6 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics'
 import { addPackageJsonDependency, getPackageJsonDependency, NodeDependency } from '@schematics/angular/utility/dependencies'
-import { commitlintCli, commitlintConfigConvention, cspell, eslintPluginRxjs, eslintSonarjs, husky, lintStaged } from '../constants'
+import { commitlintCli, commitlintConfigConvention, cspell, eslintPluginRxjs, eslintSonarjs, husky, lintStaged, unimported } from '../constants'
 import { Schema } from '../schema'
 
 export function installDependencies(options: Schema): Rule {
@@ -28,6 +28,10 @@ export function installDependencies(options: Schema): Rule {
 
     if (options.isAddLintStaged) {
       dependencies.add(lintStaged)
+    }
+
+    if (options.isAddUnimported) {
+      dependencies.add(unimported)
     }
 
     addDependencies(tree, context, Array.from(dependencies))

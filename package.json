@@ -1,6 +1,6 @@
 {
   "name": "nestjs-lint-tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A schematics to install dependencies and eslint plugins to enforce code quality",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -38,9 +38,9 @@
     "save": "devDependencies"
   },
   "dependencies": {
-    "@angular-devkit/core": "13.3.0",
-    "@angular-devkit/schematics": "13.3.0",
-    "@schematics/angular": "13.3.0",
+    "@angular-devkit/core": "13.3.9",
+    "@angular-devkit/schematics": "13.3.9",
+    "@schematics/angular": "13.3.9",
     "typescript": "4.7.2"
   },
   "devDependencies": {
