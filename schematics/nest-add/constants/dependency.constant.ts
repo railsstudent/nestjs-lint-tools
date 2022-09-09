@@ -45,5 +45,5 @@ export const eslintSonarjs: NodeDependency = {
 export const unimported: NodeDependency = {
   name: 'unimported',
   type: NodeDependencyType.Dev,
-  version: '1.12.0',
+  version: '1.21.0',
 }
