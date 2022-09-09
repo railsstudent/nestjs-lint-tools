@@ -45,7 +45,6 @@ ${cmdUnimported}
     context.addTask(
       new RunSchematicTask('pre-commit-hook', {
         enableGitHooksScript: 'npm run prepare',
-        installUnimported: isAddUnimported,
         preCommitFilePath,
       }),
       [installTaskId],
