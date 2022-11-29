@@ -1,1 +1,1 @@
-export * from './node-version-file.enum'
+export * from './node-version-file.enum';

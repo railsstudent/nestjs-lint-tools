@@ -1,6 +1,7 @@
-# NestJS Schematics for linting NestJS project    
+# NestJS Schematics for linting NestJS project
 
 ## What does it do?
+
 - Enable strict mode in tsconfig.json
 - Enable esModuleInterop in tsconfig.js
 - Install eslint-plugin-rxjs to lint rxjs codes
@@ -19,14 +20,15 @@
 nest add nestjs-lint-tools
 ```
 
-or use ```npm``` to install the library directly
+or use `npm` to install the library directly
+
 ```bash
 npm install --save-dev nestjs-linit-tools
 ```
 
 Example output of the schematics:
 
-``` bash
+```bash
  nest add nestjs-lint-tools
 ✔ Package installation in progress... ☕
 Starting library setup...
@@ -75,16 +77,18 @@ UPDATE package.json (2374 bytes)
 ```
 
 eslintrc.template
+
 ```javascript
 extends: ['plugin:rxjs/recommended','plugin:sonarjs/recommended'],
 plugins: ['sonarjs']
 ```
 
-Copy ```['plugin:rxjs/recommended','plugin:sonarjs/recommended]'``` and 
+Copy `['plugin:rxjs/recommended','plugin:sonarjs/recommended]'` and
 
 ```javascript
-['sonarjs']
+['sonarjs'];
 ```
+
 to .eslintrc.js
 
 ```javascript
