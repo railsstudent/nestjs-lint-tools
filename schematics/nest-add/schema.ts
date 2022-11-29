@@ -5,7 +5,7 @@ export interface Schema {
   isAddUnimported: boolean;
   isAddCommitlint: boolean;
   isAddLintStaged: boolean;
-  isSkipHusyHook: boolean;
+  isSkipHuskyHook: boolean;
   isAddEslintSonarJs: boolean;
   isEnableESModuleInterop: boolean;
   nodeVersion: number;
