@@ -30,6 +30,12 @@ export const husky: NodeDependency = {
   version: '8.0.2',
 };
 
+export const isCi: NodeDependency = {
+  name: 'is-ci',
+  type: NodeDependencyType.Dev,
+  version: '3.0.1',
+};
+
 export const lintStaged: NodeDependency = {
   name: 'lint-staged',
   type: NodeDependencyType.Dev,

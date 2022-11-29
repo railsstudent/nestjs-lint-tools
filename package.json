@@ -1,6 +1,6 @@
 {
   "name": "nestjs-lint-tools",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A schematics to install dependencies and eslint plugins to enforce code quality",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -36,12 +36,12 @@
   "homepage": "https://github.com/railsstudent/nestjs-lint-tools#readme",
   "schematics": "./dist/collection.json",
   "nest-add": {
-    "save": "devDependencies"
+    "save": false
   },
   "dependencies": {
-    "@angular-devkit/core": "13.3.9",
-    "@angular-devkit/schematics": "13.3.9",
-    "@schematics/angular": "13.3.9",
+    "@angular-devkit/core": "13.3.10",
+    "@angular-devkit/schematics": "13.3.10",
+    "@schematics/angular": "13.3.10",
     "typescript": "4.7.2"
   },
   "devDependencies": {

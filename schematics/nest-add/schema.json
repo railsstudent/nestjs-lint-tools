@@ -41,6 +41,12 @@
       "x-prompt": "Do you like to add lint-staged?",
       "default": true
     },
+    "isSkipHusyHook": {
+      "type": "boolean",
+      "description": "Skip husky hook during CI/CD.",
+      "x-prompt": "Do you like to skip husky hook during CI/CD?",
+      "default": false
+    },
     "isAddEslintRxjs": {
       "type": "boolean",
       "description": "Install eslint-plugin-rxjs dev dependencies.",

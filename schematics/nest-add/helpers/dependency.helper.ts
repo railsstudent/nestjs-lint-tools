@@ -13,6 +13,7 @@ import {
   husky,
   lintStaged,
   unimported,
+  isCi,
 } from '../constants';
 import { Schema } from '../schema';
 
@@ -25,6 +26,10 @@ export function installDependencies(options: Schema): Rule {
 
     if (options.isAddCommitlint || options.isAddLintStaged || options.isAddUnimported) {
       dependencies.add(husky);
+
+      if (!options.isSkipHusyHook) {
+        dependencies.add(isCi);
+      }
     }
 
     if (options.isAddCommitlint) {
