@@ -71,14 +71,15 @@ export function addHuskyPrepareScript(tree: Tree, context: SchematicContext, opt
   }
 
   if (!packageJson.scripts.prepare) {
-    packageJson.scripts.prepare = `${options.isSkipHusyHook ? 'is-ci || ' : ''}husky install`;
+    const prepare = `${options.isSkipHuskyHook ? 'is-ci || ' : ''}husky install`
+    packageJson.scripts.prepare = prepare;
     isHuskyPrepareAdded = true;
   }
 
   if (isHuskyPrepareAdded || isUnimportedScriptAdded) {
     tree.overwrite(pkgPath, JSON.stringify(packageJson, null, 2));
     if (isHuskyPrepareAdded) {
-      context.logger.info('Added husky prepare script to package.json');
+      context.logger.info(`Added husky prepare script "${packageJson.scripts.prepare}" to package.json`);
     }
 
     if (isUnimportedScriptAdded) {

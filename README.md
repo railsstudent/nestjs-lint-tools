@@ -38,21 +38,23 @@ Starting library setup...
 ? Do you like to add unimported to find unused files and dependencies? Yes
 ? Do you like to add commitlint to adopt the convention of commit message? Yes
 ? Do you like to add lint-staged? Yes
+? Do you like to skip husky hook during CI/CD? Yes
 ? Do you like to add eslint rules for RxJs? Yes
 ? Do you like to add SonarJS rules for ESLint? Yes
 ? Which version does the project use? 16
 ? Do you like to create node version configuration file? .nvmrc
     Added esModuleInterop to tsconfig.json
     Added strict mode to tsconfig.json
-    Found cspell@~6.1.1, do not add dependency
-    Found @commitlint/cli@~17.0.2, do not add dependency
-    Found @commitlint/config-conventional@~17.0.2, do not add dependency
-    Found husky@~8.0.1, do not add dependency
-    Found eslint-plugin-rxjs@~5.0.2, do not add dependency
-    Found eslint-plugin-sonarjs@~0.13.0, do not add dependency
-    Found lint-staged@~13.0.0, do not add dependency
+    Added cspell@6.15.0
+    Added @commitlint/cli@17.3.0
+    Added @commitlint/config-conventional@17.3.0
+    Added husky@8.0.2
+    Added eslint-plugin-rxjs@5.0.2
+    Added eslint-plugin-sonarjs@0.16.0
+    Added lint-staged@13.0.4
+    Added unimported@1.23.0
     Found cspell script, skip this step
-    Found husky prepare script, skip this step
+    Added husky prepare script "is-ci || husky install" to package.json
     Added .husky/commit-msg
     Added .husky/pre-commit
     Does not support .eslintrc.js

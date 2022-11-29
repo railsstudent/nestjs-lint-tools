@@ -27,7 +27,7 @@ export function installDependencies(options: Schema): Rule {
     if (options.isAddCommitlint || options.isAddLintStaged || options.isAddUnimported) {
       dependencies.add(husky);
 
-      if (options.isSkipHusyHook) {
+      if (options.isSkipHuskyHook) {
         dependencies.add(isCi);
       }
     }
