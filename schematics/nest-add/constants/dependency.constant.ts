@@ -9,7 +9,7 @@ export const eslintPluginRxjs: NodeDependency = {
 export const cspell: NodeDependency = {
   name: 'cspell',
   type: NodeDependencyType.Dev,
-  version: '16.5.0',
+  version: '6.15.0',
 };
 
 export const commitlintCli: NodeDependency = {
