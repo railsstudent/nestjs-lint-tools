@@ -1,6 +1,6 @@
 {
   "name": "nestjs-lint-tools",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A schematics to install dependencies and eslint plugins to enforce code quality",
   "scripts": {
     "prebuild": "rimraf dist",

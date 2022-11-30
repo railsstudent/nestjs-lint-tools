@@ -11,7 +11,7 @@
 - Install commitlint and create .commitlintrc.json
 - Install husky pre-commit and commit-msg hooks
 - Add engines section in package.json
-- Add either .node-version or .nvmrc node configuration version
+- Add .node-version and .nvmrc node configuration version
 - Install unimported and create .unimportedrc.json configuration to check unused files and dependencies
 
 ## Installation
@@ -42,7 +42,7 @@ Starting library setup...
 ? Do you like to add eslint rules for RxJs? Yes
 ? Do you like to add SonarJS rules for ESLint? Yes
 ? Which version does the project use? 16
-? Do you like to create node version configuration file? .nvmrc
+? Do you like to create node version files (.nvmrc and .node-version)? Yes
     Added esModuleInterop to tsconfig.json
     Added strict mode to tsconfig.json
     Added cspell@6.15.0
@@ -61,6 +61,7 @@ Starting library setup...
     Append extends and plugins from ./eslintrc.template to .eslintrc.js. Then, delete the template file.
     Added 16 to package.json
     Created .nvmrc
+    Created .node-version
 CREATE cspell.json (123 bytes)
 CREATE .husky/commit-msg (81 bytes)
 CREATE .husky/pre-commit (81 bytes)
@@ -69,6 +70,7 @@ CREATE .commitlintrc.json (66 bytes)
 CREATE .lintstagedrc.json (105 bytes)
 CREATE eslintrc.template (88 bytes)
 CREATE .nvmrc (2 bytes)
+CREATE .node-version (2 bytes)
 UPDATE tsconfig.json (734 bytes)
 UPDATE package.json (2374 bytes)
 ✔ Packages installed successfully.
