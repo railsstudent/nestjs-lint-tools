@@ -1,5 +1,4 @@
 import { Rule, SchematicContext, SchematicsException, Tree } from '@angular-devkit/schematics';
-import { NODE_VERSION_FILE } from '../enums';
 import { Schema } from '../schema';
 
 export function addNodeVersion(options: Schema): Rule {
@@ -27,28 +26,24 @@ function addEngines(tree: Tree, context: SchematicContext, nodeVersion: number) 
 }
 
 function generateNodeVersionFile(tree: Tree, context: SchematicContext, options: Schema) {
-  const configFileNameMap: Record<string, string> = {
-    [NODE_VERSION_FILE.NODE_VERSION]: '.node-version',
-    [NODE_VERSION_FILE.NVMRC]: '.nvmrc',
-    [NODE_VERSION_FILE.NONE]: '',
-  };
-
-  const { nodeVersionFile, nodeVersion } = options;
-  const configFileName = configFileNameMap[nodeVersionFile] || '';
-
-  if (!configFileName) {
+  const { shouldCreateNodeVersionFile, nodeVersion } = options;
+  if (!shouldCreateNodeVersionFile) {
     return;
   }
 
-  if (tree.exists(configFileName)) {
-    const originalConfigFileName = `${configFileName}.original`;
-    if (tree.exists(originalConfigFileName)) {
-      tree.delete(originalConfigFileName);
-    }
-    tree.rename(configFileName, originalConfigFileName);
-    context.logger.info(`Rename ${configFileName} to ${originalConfigFileName}`);
-  }
+  const nodeVersionFiles = ['.nvmrc', '.node-version'];
 
-  tree.create(configFileName, `${nodeVersion}`);
-  context.logger.info(`Created ${configFileName}`);
+  nodeVersionFiles.forEach((nodeVersionFile) => {
+    if (tree.exists(nodeVersionFile)) {
+      const originalConfigFileName = `${nodeVersionFile}.original`;
+      if (tree.exists(originalConfigFileName)) {
+        tree.delete(originalConfigFileName);
+      }
+      tree.rename(nodeVersionFile, originalConfigFileName);
+      context.logger.info(`Rename ${nodeVersionFile} to ${originalConfigFileName}`);
+    }
+
+    tree.create(nodeVersionFile, `${nodeVersion}`);
+    context.logger.info(`Created ${nodeVersionFile}`);
+  });
 }

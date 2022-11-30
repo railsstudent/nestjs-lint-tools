@@ -66,12 +66,11 @@
       "default": "16",
       "enum": [12, 14, 16, 18]
     },
-    "nodeVersionFile": {
-      "type": "string",
+    "shouldCreateNodeVersionFile": {
+      "type": "boolean",
       "description": "Create node version file.",
-      "x-prompt": "Do you like to create node version configuration file?",
-      "default": "none",
-      "enum": ["none", ".node-version", ".nvmrc"]
+      "x-prompt": "Do you like to create node version files (.nvmrc and .node-version)?",
+      "default": true
     }
   }
 }

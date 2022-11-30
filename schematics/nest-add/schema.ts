@@ -9,5 +9,5 @@ export interface Schema {
   isAddEslintSonarJs: boolean;
   isEnableESModuleInterop: boolean;
   nodeVersion: number;
-  nodeVersionFile: string;
+  shouldCreateNodeVersionFile: boolean;
 }
