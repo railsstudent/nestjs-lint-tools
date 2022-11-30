@@ -71,7 +71,7 @@ export function addHuskyPrepareScript(tree: Tree, context: SchematicContext, opt
   }
 
   if (!packageJson.scripts.prepare) {
-    const prepare = `${options.isSkipHuskyHook ? 'is-ci || ' : ''}husky install`
+    const prepare = `${options.isSkipHuskyHook ? 'is-ci || ' : ''}husky install`;
     packageJson.scripts.prepare = prepare;
     isHuskyPrepareAdded = true;
   }
